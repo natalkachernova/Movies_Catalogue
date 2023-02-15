@@ -6,7 +6,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def homepage():
-    movies = []
+    #movies = tmdb_client.get_popular_movies()["results"][:8]
+    movies = tmdb_client.get_movies(how_many=8)
     return render_template("homepage.html", movies=movies)
 
 @app.context_processor
